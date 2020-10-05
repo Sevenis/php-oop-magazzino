@@ -1,11 +1,10 @@
 <?php
-class Item {
+class Phone{
     public $modelloItem;
     public $marcaItem;
     public $disponibilitaItem;
     public $prezzoAcquisto;
     public $prezzoVendita;
-    public $categoria;
 
     public function __construct($_modelloItem){
         $this->modelloItem = $_modelloItem;
@@ -56,4 +55,11 @@ class Item {
         $this->prezzoVendita = $_prezzoVendita;
     }
     // FINE GET & SET //
+
+    public function calcoloPrezzoVendita ($_prezzoVendita){
+        if(empty($this->prezzoVendita)){
+            die('non hai inserito il prezzo!');
+        }
+        return $this->prezzoVendita * 0.22;
+    }
 }
