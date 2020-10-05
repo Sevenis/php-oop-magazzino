@@ -1,2 +1,3 @@
 <?php
-require_once 'classes/phone.php';
+require_once 'classes/Phone.php';
+require_once 'classes/Iphone.php';

@@ -1,13 +1,16 @@
 <?php
+require_once '../traits/Autorizzazione.php'
 class Phone{
     public $modelloItem;
     public $marcaItem;
     public $disponibilitaItem;
     public $prezzoAcquisto;
-    public $prezzoVendita;
+    public $prezzoVenditaNetto;
 
-    public function __construct($_modelloItem){
+    public function __construct($_autorizzazione, $_modelloItem, $_marcaItem, $_prezzoVenditaNetto){
         $this->modelloItem = $_modelloItem;
+        $this->marcaItem = $_marcaItem;
+        $this->prezzoVenditaNetto = $_prezzoVenditaNetto;
     }
 
     // GET & SET //
@@ -44,22 +47,22 @@ class Phone{
         $this->prezzoAcquisto = $_prezzoAcquisto;
     }
 
-    public function getPrezzoVendita($_prezzoVendita){
-        if(emtpy($this->prezzoVendita)){
+    public function getPrezzoVendita($_prezzoVenditaNetto){
+        if(emtpy($this->prezzoVenditaNetto)){
             die('Prezzo di acquisto non disponibile!');
         }
-        return $this->prezzoVendita;
+        return $this->prezzoVenditaNetto;
     }
 
-    public function setPrezzoVendita($_prezzoVendita){
-        $this->prezzoVendita = $_prezzoVendita;
+    public function setPrezzoVendita($_prezzoVenditaNetto){
+        $this->prezzoVendita = $_prezzoVenditaNetto;
     }
     // FINE GET & SET //
 
-    public function calcoloPrezzoVendita ($_prezzoVendita){
-        if(empty($this->prezzoVendita)){
+    public function calcoloPrezzoVenditaFinale ($_prezzoVenditaNetto){
+        if(empty($this->prezzoVenditaNetto)){
             die('non hai inserito il prezzo!');
         }
-        return $this->prezzoVendita * 0.22;
+        return $this->prezzoVenditaNetto * 0.22;
     }
 }

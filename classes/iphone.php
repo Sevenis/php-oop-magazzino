@@ -1,11 +1,11 @@
 <?php
-require_once 'phone.php';
+require_once 'Phone.php';
 
-class Iphone extends phone {
+class Iphone extends Phone {
     private $iOsVersion;
 
-    public function __construct ($_modello, $_iOsVersion){
-        parent::__construct($_modello);
+    public function __construct ($_modelloItem, $_marcaItem, $_prezzoVenditaNetto, $_iOsVersion){
+        parent::__construct($_modelloItem, $_marcaItem, $_prezzoVenditaNetto);
         $this->iOsVersion = $_iOsVersion;
     }
 
